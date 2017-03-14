@@ -35,6 +35,24 @@
             </objects>
             <point key="canvasLocation" x="476" y="26"/>
         </scene>
+        <!--Show DestinationVC-->
+        <scene sceneID="AhH-OD-qbj">
+            <objects>
+                <viewController id="v6M-Qc-uWC" customClass="showDestinationVC" customModule="GooglemapTest" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="DQX-k9-MsV"/>
+                        <viewControllerLayoutGuide type="bottom" id="3NP-d2-1pU"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="paj-5i-VBO">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4cZ-ik-nbw" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1345" y="26"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="H0c-8x-eVg">
             <objects>

@@ -18,7 +18,7 @@ func getRecentData(_ lat: Double,_ long: Double){
     let key = "AIzaSyCgFAmCSFQeqjxS-HtXBZCmgpDanb0yw3U"
     
     let url = "https://maps.googleapis.com/maps/api/geocode/json?&key=\(key)&latlng=\(lat)%2C\(long)"
-    //  Mark Popular Document
+    //  Mark 
     Alamofire.request(url).responseJSON { (response) in
         
         if let data = response.data {
@@ -62,8 +62,7 @@ func getQuerySearchResultPlace(inputSearchText: String){
                 //                    var AutoCompleteResults:[AutoCompleteResult] = []
                 let json = try JSONSerialization.jsonObject(with: data, options: JSONSerialization.ReadingOptions.mutableContainers) as! [String:Any]
                 print(json)
-                let model = AutoCompleteResult()
-                var resultDescriptions = [model.description]
+                var resultDescriptions = [String]()
                 if let j: [Dictionary<String, AnyObject>] = json["predictions"] as? [Dictionary<String, AnyObject>] {
                     
                     for eachDescription in j{
@@ -72,32 +71,15 @@ func getQuerySearchResultPlace(inputSearchText: String){
                         if !(eachDescription?["description"] is NSNull) {
                             
                             print("comeon\(result)")
-                            //                                resultDescriptions.append(result!)
+//                            resultDescriptions.append(result!)
                         }
                         resultDescriptions.append(result!)
                     }
                     resultDescriptions.removeFirst()
+                    arrResultAutoComplete = resultDescriptions
                     print("resultDescriptions\(resultDescriptions)")
                     
                 }
-                
-                
-                
-                
-                //                    if let json = jsonResult["predictions"] as? [Dictionary<String, AnyObject>]{
-                //                        print(json)
-                //                        for eachDescription in json{
-                //                            let eachDescription = eachDescription
-                //                            let model = AutoCompleteResult()
-                //                            if !(eachDescription["ID"] is NSNull)  {
-                //                            model.resultDescription = eachDescription["description"] as? String
-                //                            }
-                //                            AutoCompleteResults.append(model)
-                //                            print("testingresult\(AutoCompleteResults)")
-                //
-                //                        }
-                //
-                //                    }
                 
             } catch {
                 print("JSON Processing Failed")

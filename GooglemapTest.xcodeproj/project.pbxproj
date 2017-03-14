@@ -19,6 +19,7 @@
 		02B7F9BA1E70DEC70048E5C2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 02B7F9B81E70DEC70048E5C2 /* Main.storyboard */; };
 		02B7F9BC1E70DEC70048E5C2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 02B7F9BB1E70DEC70048E5C2 /* Assets.xcassets */; };
 		02B7F9BF1E70DEC70048E5C2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 02B7F9BD1E70DEC70048E5C2 /* LaunchScreen.storyboard */; };
+		02ED30151E76944700AC7FDD /* showDestinationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02ED30141E76944700AC7FDD /* showDestinationVC.swift */; };
 		77346B6970E0948594F35439 /* Pods_GooglemapTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA19500C3671D258906856A0 /* Pods_GooglemapTest.framework */; };
 		A7B8E06B1E7293C000331B95 /* MapTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7B8E06A1E7293C000331B95 /* MapTask.swift */; };
 /* End PBXBuildFile section */
@@ -38,6 +39,7 @@
 		02B7F9BB1E70DEC70048E5C2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		02B7F9BE1E70DEC70048E5C2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		02B7F9C01E70DEC80048E5C2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		02ED30141E76944700AC7FDD /* showDestinationVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = showDestinationVC.swift; sourceTree = "<group>"; };
 		899544D93B2FA477CB7FF0CA /* Pods-GooglemapTest.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GooglemapTest.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GooglemapTest/Pods-GooglemapTest.debug.xcconfig"; sourceTree = "<group>"; };
 		A7B8E06A1E7293C000331B95 /* MapTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapTask.swift; sourceTree = "<group>"; };
 		DA19500C3671D258906856A0 /* Pods_GooglemapTest.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GooglemapTest.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -71,6 +73,7 @@
 				021AF9F21E76465800874448 /* SearchAutoCompleteVC.swift */,
 				021AF9F31E76465800874448 /* SearchAutoCompleteVC.xib */,
 				02B7F9B61E70DEC70048E5C2 /* ViewController.swift */,
+				02ED30141E76944700AC7FDD /* showDestinationVC.swift */,
 			);
 			name = ViewController;
 			sourceTree = "<group>";
@@ -279,6 +282,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				02AE20C31E75610E00DC2183 /* Model.swift in Sources */,
+				02ED30151E76944700AC7FDD /* showDestinationVC.swift in Sources */,
 				02AE20C51E75733600DC2183 /* Allfunction.swift in Sources */,
 				A7B8E06B1E7293C000331B95 /* MapTask.swift in Sources */,
 				02B7F9B71E70DEC70048E5C2 /* ViewController.swift in Sources */,
