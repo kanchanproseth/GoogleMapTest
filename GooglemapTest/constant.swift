@@ -24,3 +24,5 @@ var totalDurationInSeconds: UInt = 0
 
 var totalDuration: String!
 var arrResultAutoComplete: [String]?
+
+let key = "AIzaSyCgFAmCSFQeqjxS-HtXBZCmgpDanb0yw3U"

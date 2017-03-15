@@ -13,7 +13,7 @@ import Alamofire
 import ObjectMapper
 
 
-class ViewController: UIViewController, CLLocationManagerDelegate {
+class ViewController: UIViewController, CLLocationManagerDelegate, GMSMapViewDelegate {
     var locationManager = CLLocationManager()
     var currentLocation: CLLocation?
     var mapView: GMSMapView!
@@ -36,6 +36,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
    
     override func viewDidLoad() {
         super.viewDidLoad()
+        getQuerySearchResultPlace(inputSearchText: "watphnom")
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.requestAlwaysAuthorization()
         locationManager.distanceFilter = 50
@@ -68,13 +69,36 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         
         let camera = GMSCameraPosition.camera(withLatitude: latitude, longitude: longitude, zoom: zoomLevel)
         let mapView = GMSMapView.map(withFrame: .zero, camera: camera)
+        mapView.delegate = self
+        mapView.settings.myLocationButton = true
+        mapView.settings.indoorPicker = true
+        mapView.settings.allowScrollGesturesDuringRotateOrZoom = true
+        mapView.settings.consumesGesturesInView = true
+        mapView.settings.compassButton = true
+        mapView.settings.setAllGesturesEnabled(true)
+        mapView.settings.zoomGestures = true
         view = mapView
         
-        mapView.settings.myLocationButton = true
-        mapView.isMyLocationEnabled = true
+//        mapView.settings.myLocationButton = true
+//        mapView.isMyLocationEnabled = true
+//        mapView.settings.indoorPicker = true
+//        mapView.settings.allowScrollGesturesDuringRotateOrZoom = true
+//        mapView.settings.consumesGesturesInView = true
+//        mapView.settings.compassButton = true
+//        mapView.settings.setAllGesturesEnabled(true)
+//        mapView.settings.zoomGestures = true
         
     }
-    
+    func mapView(_ mapView: GMSMapView, didTapAt coordinate: CLLocationCoordinate2D) {
+        print("You tapped at \(coordinate.latitude), \(coordinate.longitude)")
+        mapView.clear()
+        let originMarker = GMSMarker()
+        originMarker.position = CLLocationCoordinate2DMake(coordinate.latitude, coordinate.longitude)
+        originMarker.map = mapView
+        originMarker.icon = GMSMarker.markerImage(with: UIColor.black)
+        originMarker.title = originAddress
+    }
+
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         let userLocation:CLLocation = locations.last! as CLLocation
@@ -88,7 +112,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         showMapView(LATITUDE, LONGITUDE)
         
 //        getRecentData(lat, long)
-        //        var ceo = CLGeocoder()
+//                var ceo = CLGeocoder()
         //        var loc = CLLocation(latitude: lat  , longitude: long)
         //        //insert your coordinates
         //        ceo.reverseGeocodeLocation(loc, completionHandler:

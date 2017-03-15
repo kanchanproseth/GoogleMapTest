@@ -23,6 +23,7 @@ class showDestinationVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         let currentLoc = CLLocationCoordinate2D(latitude: LATITUDE, longitude: LONGITUDE)
         let destinationloc = CLLocationCoordinate2D(latitude: DESTLATITUDE, longitude: DESTLONGITUDE)
         getPolylineRoute(from: currentLoc, to: destinationloc)

@@ -15,8 +15,6 @@ import Alamofire
 
 func getRecentData(_ lat: Double,_ long: Double){
     
-    let key = "AIzaSyCgFAmCSFQeqjxS-HtXBZCmgpDanb0yw3U"
-    
     let url = "https://maps.googleapis.com/maps/api/geocode/json?&key=\(key)&latlng=\(lat)%2C\(long)"
     //  Mark 
     Alamofire.request(url).responseJSON { (response) in
@@ -50,9 +48,7 @@ func getRecentData(_ lat: Double,_ long: Double){
 //MARK fetchSearchresult
 func getQuerySearchResultPlace(inputSearchText: String){
     
-    let key = "AIzaSyCgFAmCSFQeqjxS-HtXBZCmgpDanb0yw3U"
-    
-    let urlDirectionPlace = "https://maps.googleapis.com/maps/api/place/queryautocomplete/json?key=\(key)&input=\(inputSearchText)cambodia"
+    let urlDirectionPlace = "https://maps.googleapis.com/maps/api/place/queryautocomplete/json?key=\(key)&input=coffeeshop\(inputSearchText)cambodia"
     
     //  Mark Popular Document
     Alamofire.request(urlDirectionPlace).responseJSON { (response) in
