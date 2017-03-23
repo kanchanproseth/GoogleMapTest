@@ -8,10 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		021A60C71E72469600D339AC /* constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 021A60C61E72469600D339AC /* constant.swift */; };
-		021AF9F41E76465800874448 /* SearchAutoCompleteVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 021AF9F21E76465800874448 /* SearchAutoCompleteVC.swift */; };
-		021AF9F51E76465800874448 /* SearchAutoCompleteVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 021AF9F31E76465800874448 /* SearchAutoCompleteVC.xib */; };
 		021AF9F81E76487D00874448 /* SearchResultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 021AF9F61E76487D00874448 /* SearchResultCell.swift */; };
 		021AF9F91E76487D00874448 /* SearchResultCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 021AF9F71E76487D00874448 /* SearchResultCell.xib */; };
+		0243D6661E83AF5B00C94379 /* GoogleAutoComplete.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0243D6641E83AF5B00C94379 /* GoogleAutoComplete.swift */; };
+		0243D6671E83AF5B00C94379 /* GoogleAutoComplete.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0243D6651E83AF5B00C94379 /* GoogleAutoComplete.xib */; };
+		0243D66C1E83B48100C94379 /* textFields.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0243D66B1E83B48100C94379 /* textFields.swift */; };
 		02AE20C31E75610E00DC2183 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02AE20C21E75610E00DC2183 /* Model.swift */; };
 		02AE20C51E75733600DC2183 /* Allfunction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02AE20C41E75733600DC2183 /* Allfunction.swift */; };
 		02B7F9B51E70DEC70048E5C2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B7F9B41E70DEC70048E5C2 /* AppDelegate.swift */; };
@@ -26,10 +27,11 @@
 
 /* Begin PBXFileReference section */
 		021A60C61E72469600D339AC /* constant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = constant.swift; sourceTree = "<group>"; };
-		021AF9F21E76465800874448 /* SearchAutoCompleteVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchAutoCompleteVC.swift; sourceTree = "<group>"; };
-		021AF9F31E76465800874448 /* SearchAutoCompleteVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchAutoCompleteVC.xib; sourceTree = "<group>"; };
 		021AF9F61E76487D00874448 /* SearchResultCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchResultCell.swift; sourceTree = "<group>"; };
 		021AF9F71E76487D00874448 /* SearchResultCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchResultCell.xib; sourceTree = "<group>"; };
+		0243D6641E83AF5B00C94379 /* GoogleAutoComplete.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoogleAutoComplete.swift; sourceTree = "<group>"; };
+		0243D6651E83AF5B00C94379 /* GoogleAutoComplete.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GoogleAutoComplete.xib; sourceTree = "<group>"; };
+		0243D66B1E83B48100C94379 /* textFields.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = textFields.swift; sourceTree = "<group>"; };
 		02AE20C21E75610E00DC2183 /* Model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		02AE20C41E75733600DC2183 /* Allfunction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Allfunction.swift; sourceTree = "<group>"; };
 		02B7F9B11E70DEC70048E5C2 /* GooglemapTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GooglemapTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -70,10 +72,10 @@
 		021AF9FB1E765B2800874448 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
-				021AF9F21E76465800874448 /* SearchAutoCompleteVC.swift */,
-				021AF9F31E76465800874448 /* SearchAutoCompleteVC.xib */,
 				02B7F9B61E70DEC70048E5C2 /* ViewController.swift */,
 				02ED30141E76944700AC7FDD /* showDestinationVC.swift */,
+				0243D6641E83AF5B00C94379 /* GoogleAutoComplete.swift */,
+				0243D6651E83AF5B00C94379 /* GoogleAutoComplete.xib */,
 			);
 			name = ViewController;
 			sourceTree = "<group>";
@@ -103,6 +105,14 @@
 			name = FunctionClass;
 			sourceTree = "<group>";
 		};
+		0243D6681E83B29C00C94379 /* view */ = {
+			isa = PBXGroup;
+			children = (
+				0243D66B1E83B48100C94379 /* textFields.swift */,
+			);
+			name = view;
+			sourceTree = "<group>";
+		};
 		02B7F9A81E70DEC70048E5C2 = {
 			isa = PBXGroup;
 			children = (
@@ -124,6 +134,7 @@
 		02B7F9B31E70DEC70048E5C2 /* GooglemapTest */ = {
 			isa = PBXGroup;
 			children = (
+				0243D6681E83B29C00C94379 /* view */,
 				021AF9FE1E765B8F00874448 /* FunctionClass */,
 				021AF9FD1E765B7900874448 /* Model */,
 				021AF9FC1E765B4300874448 /* Utility */,
@@ -192,6 +203,11 @@
 						CreatedOnToolsVersion = 8.2.1;
 						DevelopmentTeam = DEE97ABVRX;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -219,9 +235,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				02B7F9BF1E70DEC70048E5C2 /* LaunchScreen.storyboard in Resources */,
+				0243D6671E83AF5B00C94379 /* GoogleAutoComplete.xib in Resources */,
 				021AF9F91E76487D00874448 /* SearchResultCell.xib in Resources */,
 				02B7F9BC1E70DEC70048E5C2 /* Assets.xcassets in Resources */,
-				021AF9F51E76465800874448 /* SearchAutoCompleteVC.xib in Resources */,
 				02B7F9BA1E70DEC70048E5C2 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -281,12 +297,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0243D6661E83AF5B00C94379 /* GoogleAutoComplete.swift in Sources */,
+				0243D66C1E83B48100C94379 /* textFields.swift in Sources */,
 				02AE20C31E75610E00DC2183 /* Model.swift in Sources */,
 				02ED30151E76944700AC7FDD /* showDestinationVC.swift in Sources */,
 				02AE20C51E75733600DC2183 /* Allfunction.swift in Sources */,
 				A7B8E06B1E7293C000331B95 /* MapTask.swift in Sources */,
 				02B7F9B71E70DEC70048E5C2 /* ViewController.swift in Sources */,
-				021AF9F41E76465800874448 /* SearchAutoCompleteVC.swift in Sources */,
 				021A60C71E72469600D339AC /* constant.swift in Sources */,
 				021AF9F81E76487D00874448 /* SearchResultCell.swift in Sources */,
 				02B7F9B51E70DEC70048E5C2 /* AppDelegate.swift in Sources */,

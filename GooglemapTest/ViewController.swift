@@ -13,40 +13,28 @@ import Alamofire
 import ObjectMapper
 
 
-class ViewController: UIViewController, CLLocationManagerDelegate, GMSMapViewDelegate {
+class ViewController: UIViewController, CLLocationManagerDelegate , GMSMapViewDelegate{
     var locationManager = CLLocationManager()
     var currentLocation: CLLocation?
     var mapView: GMSMapView!
-    var placesClient: GMSPlacesClient!
     
+    
+    @IBOutlet weak var MyView: UIView!
     var resultsViewController: GMSAutocompleteResultsViewController?
     var searchController: UISearchController?
     var resultView: UITextView?
     
-    
-    override func viewDidAppear(_ animated: Bool) {
-       
-    }
-    
-    
-    
-    override func viewWillAppear(_ animated: Bool) {
-        
-    }
-   
     override func viewDidLoad() {
         super.viewDidLoad()
-        getQuerySearchResultPlace(inputSearchText: "watphnom")
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.requestAlwaysAuthorization()
         locationManager.distanceFilter = 50
         locationManager.startUpdatingLocation()
         locationManager.delegate = self
-//        getQuerySearchResultPlace(inputSearchText: "watphnom")
-        placesClient = GMSPlacesClient.shared()
         
         
-        // Do any additional setup after loading the view, typically from a nib.
+       
+
     }
 
     override func didReceiveMemoryWarning() {
@@ -55,39 +43,50 @@ class ViewController: UIViewController, CLLocationManagerDelegate, GMSMapViewDel
     }
     
     
+    
+    
+    
     @IBAction func searchAutocomplete(_ sender: Any) {
-        let autocompleteController = GMSAutocompleteViewController()
-        autocompleteController.delegate = self
-        let filter = GMSAutocompleteFilter()
-        filter.type = .establishment
-        filter.country = "KH"
-        autocompleteController.autocompleteFilter = filter
-        present(autocompleteController, animated: true, completion: nil)
+//        let autocompleteController = GMSAutocompleteViewController()
+//        autocompleteController.delegate = self
+//        let filter = GMSAutocompleteFilter()
+//        filter.type = .city
+//        filter.country = "KH"
+//        autocompleteController.autocompleteFilter = filter
+//        present(autocompleteController, animated: true, completion: nil)
+        let GoogleAutoCompletevc = GoogleAutoComplete(nibName: "GoogleAutoComplete", bundle: nil)
+        GoogleAutoCompletevc.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
+        GoogleAutoCompletevc.modalTransitionStyle = UIModalTransitionStyle.crossDissolve
+        present(GoogleAutoCompletevc, animated: true, completion: nil)
         }
+    
+    
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        let userLocation:CLLocation = locations.last! as CLLocation
+        let long = userLocation.coordinate.longitude;
+        let lat = userLocation.coordinate.latitude;
+        
+        print(lat)
+        print(long)
+        LATITUDE = lat
+        LONGITUDE = long
+        locationManager.stopUpdatingLocation()
+        showMapView(LATITUDE, LONGITUDE)
+    }
+    
+    
     
     func showMapView(_ latitude:Double,_ longitude:Double){
         
-        let camera = GMSCameraPosition.camera(withLatitude: latitude, longitude: longitude, zoom: zoomLevel)
-        let mapView = GMSMapView.map(withFrame: .zero, camera: camera)
-        mapView.delegate = self
-        mapView.settings.myLocationButton = true
-        mapView.settings.indoorPicker = true
-        mapView.settings.allowScrollGesturesDuringRotateOrZoom = true
-        mapView.settings.consumesGesturesInView = true
-        mapView.settings.compassButton = true
+        let camera = GMSCameraPosition.camera(withLatitude: LATITUDE, longitude: LONGITUDE, zoom: zoomLevel)
+        let mapView = GMSMapView.map(withFrame: MyView.bounds, camera: camera)
         mapView.settings.setAllGesturesEnabled(true)
-        mapView.settings.zoomGestures = true
-        view = mapView
-        
-//        mapView.settings.myLocationButton = true
-//        mapView.isMyLocationEnabled = true
-//        mapView.settings.indoorPicker = true
-//        mapView.settings.allowScrollGesturesDuringRotateOrZoom = true
-//        mapView.settings.consumesGesturesInView = true
-//        mapView.settings.compassButton = true
-//        mapView.settings.setAllGesturesEnabled(true)
-//        mapView.settings.zoomGestures = true
-        
+        mapView.settings.myLocationButton = true
+        mapView.isMyLocationEnabled = true
+        mapView.settings.compassButton = true
+        mapView.delegate = self
+        MyView.addSubview(mapView)
     }
     func mapView(_ mapView: GMSMapView, didTapAt coordinate: CLLocationCoordinate2D) {
         print("You tapped at \(coordinate.latitude), \(coordinate.longitude)")
@@ -100,56 +99,17 @@ class ViewController: UIViewController, CLLocationManagerDelegate, GMSMapViewDel
     }
 
     
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        let userLocation:CLLocation = locations.last! as CLLocation
-        let long = userLocation.coordinate.longitude;
-        let lat = userLocation.coordinate.latitude;
-        print(lat)
-        print(long)
-        LATITUDE = lat
-        LONGITUDE = long
-        //Do What ever you want with it
-        showMapView(LATITUDE, LONGITUDE)
-        
-//        getRecentData(lat, long)
-//                var ceo = CLGeocoder()
-        //        var loc = CLLocation(latitude: lat  , longitude: long)
-        //        //insert your coordinates
-        //        ceo.reverseGeocodeLocation(loc, completionHandler:
-        //            { ( placemarks,error) -> Void in
-        //                var placemark: CLPlacemark? = placemarks?[0]
-        //                if placemark != nil {
-        //                    print("placemark \(placemark)")
-        //                    //String to hold address
-        //
-        //                    print("addressDictionary \(placemark?.addressDictionary)")
-        //                    print("placemark1 \(placemark?.region)")
-        //                    print("placemark2 \(placemark?.country)")
-        //                    // Give Country Name
-        //                    print("placemark3 \(placemark?.locality)")
-        //                    // Extract the city name
-        //                    print("location4 \(placemark?.name)")
-        //                    print("location5 \(placemark?.ocean)")
-        //                    print("location6 \(placemark?.postalCode)")
-        //                    print("location7 \(placemark?.subLocality)")
-        //                    print("location8 \(placemark?.location)")
-        //                    //Print the location to console
-        ////                    print("I am currently at \(locatedAt)")
-        //                }
-        //                else {
-        //                    print("Could not locate")
-        //                }
-        //        }
-        //        )
-        
-    }
-    
- 
+//    func mapView(_ mapView: GMSMapView, markerInfoWindow marker: GMSMarker) -> UIView? {
+//        print("markerInfoWindow")
+//        return self.view
+//    }
+//    
+//    func mapView(_ mapView: GMSMapView, willMove gesture: Bool) {
+//        
+//    }
+
 
 }
-
-
-
 
 
 
@@ -194,10 +154,14 @@ extension ViewController: GMSAutocompleteViewControllerDelegate {
 
 
 
-
-
-
-
+//func gotoMyLocationAction(sender: UIButton)
+//{
+//    guard let lat = self.mapView.myLocation?.coordinate.latitude,
+//        let lng = self.mapView.myLocation?.coordinate.longitude else { return }
+//    
+//    let camera = GMSCameraPosition.camera(withLatitude: lat ,longitude: lng , zoom: zoom)
+//    self.mapView.animate(to: camera)
+//}
 
 
 

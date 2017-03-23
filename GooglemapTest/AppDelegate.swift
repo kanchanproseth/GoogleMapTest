@@ -15,13 +15,58 @@ import Alamofire
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         GMSServices.provideAPIKey("AIzaSyCzNTURxaei_xg4Lpr8b8NYsBcOEqdPoKU")
         GMSPlacesClient.provideAPIKey("AIzaSyCzNTURxaei_xg4Lpr8b8NYsBcOEqdPoKU")
+        
         return true
     }
+    
+
+    
+//    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+//        let userLocation:CLLocation = locations.last! as CLLocation
+//        let long = userLocation.coordinate.longitude;
+//        let lat = userLocation.coordinate.latitude;
+//        print(lat)
+//        print(long)
+//        LATITUDE = lat
+//        LONGITUDE = long
+//
+//        //        getRecentData(lat, long)
+//        //                var ceo = CLGeocoder()
+//        //        var loc = CLLocation(latitude: lat  , longitude: long)
+//        //        //insert your coordinates
+//        //        ceo.reverseGeocodeLocation(loc, completionHandler:
+//        //            { ( placemarks,error) -> Void in
+//        //                var placemark: CLPlacemark? = placemarks?[0]
+//        //                if placemark != nil {
+//        //                    print("placemark \(placemark)")
+//        //                    //String to hold address
+//        //
+//        //                    print("addressDictionary \(placemark?.addressDictionary)")
+//        //                    print("placemark1 \(placemark?.region)")
+//        //                    print("placemark2 \(placemark?.country)")
+//        //                    // Give Country Name
+//        //                    print("placemark3 \(placemark?.locality)")
+//        //                    // Extract the city name
+//        //                    print("location4 \(placemark?.name)")
+//        //                    print("location5 \(placemark?.ocean)")
+//        //                    print("location6 \(placemark?.postalCode)")
+//        //                    print("location7 \(placemark?.subLocality)")
+//        //                    print("location8 \(placemark?.location)")
+//        //                    //Print the location to console
+//        ////                    print("I am currently at \(locatedAt)")
+//        //                }
+//        //                else {
+//        //                    print("Could not locate")
+//        //                }
+//        //        }
+//        //        )
+//        
+//    }
 
     func applicationWillResignActive(_ application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.

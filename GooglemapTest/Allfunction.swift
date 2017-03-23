@@ -46,45 +46,6 @@ func getRecentData(_ lat: Double,_ long: Double){
 
 
 //MARK fetchSearchresult
-func getQuerySearchResultPlace(inputSearchText: String){
-    
-    let urlDirectionPlace = "https://maps.googleapis.com/maps/api/place/queryautocomplete/json?key=\(key)&input=coffeeshop\(inputSearchText)cambodia"
-    
-    //  Mark Popular Document
-    Alamofire.request(urlDirectionPlace).responseJSON { (response) in
-        
-        if let data = response.data {
-            do {
-                //                    var AutoCompleteResults:[AutoCompleteResult] = []
-                let json = try JSONSerialization.jsonObject(with: data, options: JSONSerialization.ReadingOptions.mutableContainers) as! [String:Any]
-                print(json)
-                var resultDescriptions = [String]()
-                if let j: [Dictionary<String, AnyObject>] = json["predictions"] as? [Dictionary<String, AnyObject>] {
-                    
-                    for eachDescription in j{
-                        let eachDescription = eachDescription as? [String:AnyObject]
-                        let result = eachDescription?["description"] as? String
-                        if !(eachDescription?["description"] is NSNull) {
-                            
-                            print("comeon\(result)")
-//                            resultDescriptions.append(result!)
-                        }
-                        resultDescriptions.append(result!)
-                    }
-                    resultDescriptions.removeFirst()
-                    arrResultAutoComplete = resultDescriptions
-                    print("resultDescriptions\(resultDescriptions)")
-                    
-                }
-                
-            } catch {
-                print("JSON Processing Failed")
-            }
-            
-        }
-    }
-    
-}
 
 
 

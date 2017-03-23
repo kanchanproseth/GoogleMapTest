@@ -14,7 +14,7 @@ var DESTLATITUDE:Double!
 var DESTLONGITUDE:Double!
 var currentPlaceID: String!
 var SearchPlaceID: String!
-var zoomLevel: Float = 10.0
+var zoomLevel: Float = 16.0
 
 var totalDistanceInMeters: UInt = 0
 
